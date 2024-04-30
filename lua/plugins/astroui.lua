@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroUI provides the basis for configuring the AstroNvim User Interface
 -- Configuration documentation can be found with `:h astroui`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -19,6 +17,13 @@ return {
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
+      },
+
+      --mish
+      global = { -- Add or modify hl groups globaly, theme specific hl groups take priority.
+        -- mish
+        -- modify_hl_groups = function(hl, c) hl.PluginColor4 = { fg = c.my_grey, bg = c.none } end,
+        -- ["@String"] = { fg = "#ff00ff", bg = "NONE" },
       },
     },
     -- Icons can be configured throughout the interface

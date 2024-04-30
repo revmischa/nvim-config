@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- AstroCore provides a central place to modify mappings, vim options, autocommands, and more!
 -- Configuration documentation can be found with `:h astrocore`
 -- NOTE: We highly recommend setting up the Lua Language Server (`:LspInstall lua_ls`)
@@ -23,6 +21,7 @@ return {
     diagnostics = {
       virtual_text = true,
       underline = true,
+      -- spacing = 4, -- mish
     },
     -- vim options can be configured here
     options = {
@@ -37,6 +36,7 @@ return {
         -- configure global vim variables (vim.g)
         -- NOTE: `mapleader` and `maplocalleader` must be set in the AstroNvim opts or before `lazy.setup`
         -- This can be found in the `lua/lazy_setup.lua` file
+        -- ui_notifications_enabled = true, -- notifications when toggling UI elements
       },
     },
     -- Mappings can be configured through AstroCore as well.
@@ -62,12 +62,89 @@ return {
         -- tables with just a `desc` key will be registered with which-key if it's installed
         -- this is useful for naming menus
         ["<Leader>b"] = { desc = "Buffers" },
+
+        --- mish
+
+        ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
+
         -- quick save
-        -- ["<C-s>"] = { ":w!<cr>", desc = "Save File" },  -- change description but the same command
+        ["<C-s>"] = { ":w<cr>", desc = "Save File" },
+        -- clear search highlights
+        -- ["<leader>nh"] = { ":nohlsearch<cr>", desc = "Clear search highlights" },
+        -- copy relative path of current file to clipboard
+        ["<leader>fy"] = { ":let @+ = expand('%:p')<cr>", desc = "Copy relative path" },
+        -- split vertically
+        ["<leader>sv"] = { ":vsplit<cr>", desc = "Split vertically" },
+        -- split horizontally
+        ["<leader>sa"] = { ":split<cr>", desc = "Split horizontally" },
+        -- maximize current pane
+        ["<leader>sq"] = { ":MaximizerToggle!<cr>", desc = "Maximize pane" },
+        -- close window
+        ["<leader>q"] = { ":q<cr>", desc = "Close window" },
+        -- jump to definition
+        ["<leader>jd"] = { ":lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition" },
+        -- jump to definition in vertical split
+        ["<leader>jj"] = {
+          '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
+          desc = "Jump to definition in vertical split",
+        },
+        -- jump to definition in horizontal split
+        ["<leader>jh"] = {
+          '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
+          desc = "Jump to definition in horizontal split",
+        },
+        -- TypeScript: add missing imports
+        ["<leader>im"] = { ":TypescriptAddMissingImports<cr>", desc = "Add missing imports" },
+        -- TypeScript: organize imports
+        ["<leader>io"] = { ":TypescriptOrganizeImports<cr>", desc = "Organize imports" },
+        -- TypeScript: remove unused
+        ["<leader>ir"] = { ":TypescriptRemoveUnused<cr>", desc = "Remove unused" },
+        -- restart LSP
+        ["<leader>rs"] = { ":LspRestart<cr>", desc = "Restart LSP" },
+        -- show LSP references
+        ["<F1>"] = { ":LspReferences<cr>", desc = "Show LSP references" },
+        -- LSP rename current symbol
+        ["<F2>"] = { ":LspRename<cr>", desc = "LSP rename current symbol" },
+        -- recent files
+        ["<leader><leader>"] = { ":Telescope oldfiles<cr>", desc = "Recent files" },
+        -- don't copy deleted chat
+        ["x"] = { '"_x' },
+        -- open astro when no buffers are open
+        ["<leader>c"] = {
+          function()
+            local bufs = vim.fn.getbufinfo { buflisted = true }
+            require("astronvim.utils.buffer").close(0)
+            if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then
+              require("alpha").start(true)
+            end
+          end,
+          desc = "Close buffer",
+        },
+        -- toggle terminal
+        ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
+        -- ctl-b - comment
+        -- ["<C-b>"] = {
+      },
+      -- insert mode
+      i = {
+        -- save file
+        ["<C-s>"] = { "<esc>:w!<cr>", desc = "Save File" }, -- change description but the same command
+        -- toggle terminal
+        ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
+        -- ctl-b - comment
+        -- ["<C-b>"] = { "<cmd>CommentToggle<cr>", desc = "Comment" },
+
+        -- next copilot suggestion
+        ["<C-n>"] = {
+          function() require("copilot.suggestion").next() end,
+          desc = "Next Copilot Suggestion",
+        },
       },
       t = {
         -- setting a mapping to false will disable it
         -- ["<esc>"] = false,
+        -- toggle terminal
+        ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
       },
     },
   },
