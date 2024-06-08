@@ -50,10 +50,14 @@ return {
   { import = "astrocommunity.pack.tailwindcss" },
 
   -- nix
-  { import = "astrocommunity.pack.nix" },
+  -- { import = "astrocommunity.pack.nix" },
 
   -- prisma
   { import = "astrocommunity.pack.prisma" },
+
+  -- cpp
+  { import = "astrocommunity.pack.cpp" },
+  { import = "astrocommunity.pack.cmake" },
 
   -- python
   { import = "astrocommunity.pack.python" },
@@ -93,29 +97,29 @@ return {
   -- { import = "astrocommunity.debugging.telescope-dap-nvim" },
 
   -- trouble
-  -- {
-  --  "astrocommunity.diagnostics.trouble-nvim",
-  --  -- config = function(plugin, opts)
-  --  --  opts = function(_, opts_)
-  --  --   opts_.auto_open = true
-  --  --   opts_.auto_close = true
-  --  --   opts_.auto_preview = false
-  --  --   opts_.auto_fold = false
-  --  --   opts_.height = 4
-  --  --   opts_.use_lsp_diagnostic_signs = true
-  --  --   opts_.position = "bottom"
-  --  --   return opts_
-  --  --  end
-  --  --  require "plugins.configs.trouble" (plugin, opts)
-  --  -- end
-  --  opts = {
-  --   auto_open = true,
-  --   auto_close = true,
-  --   auto_preview = false,
-  --   auto_fold = false,
-  --   height = 4,
-  --   use_lsp_diagnostic_signs = true,
-  --   position = "bottom",
-  --  }
-  -- }
+  {
+    import = "astrocommunity.diagnostics.trouble-nvim",
+    -- config = function(plugin, opts)
+    --  opts = function(_, opts_)
+    --   opts_.auto_open = true
+    --   opts_.auto_close = true
+    --   opts_.auto_preview = false
+    --   opts_.auto_fold = false
+    --   opts_.height = 4
+    --   opts_.use_lsp_diagnostic_signs = true
+    --   opts_.position = "bottom"
+    --   return opts_
+    --  end
+    --  require "plugins.configs.trouble" (plugin, opts)
+    -- end
+    opts = {
+      auto_open = true,
+      auto_close = true,
+      auto_preview = false,
+      auto_fold = false,
+      height = 4,
+      use_lsp_diagnostic_signs = true,
+      position = "bottom",
+    },
+  },
 }

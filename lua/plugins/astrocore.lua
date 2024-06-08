@@ -67,8 +67,11 @@ return {
 
         ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 
+        -- open files (hidden)
+        ["<leader>fv"] = { ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', desc = "Find hidden" },
         -- quick save
-        ["<C-s>"] = { ":w<cr>", desc = "Save File" },
+        -- ["<C-s>"] = { ":w<cr>", desc = "Save File" },
+        ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
         -- clear search highlights
         -- ["<leader>nh"] = { ":nohlsearch<cr>", desc = "Clear search highlights" },
         -- copy relative path of current file to clipboard
@@ -94,11 +97,11 @@ return {
           desc = "Jump to definition in horizontal split",
         },
         -- TypeScript: add missing imports
-        ["<leader>im"] = { ":TypescriptAddMissingImports<cr>", desc = "Add missing imports" },
+        ["<leader>im"] = { ":TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
         -- TypeScript: organize imports
-        ["<leader>io"] = { ":TypescriptOrganizeImports<cr>", desc = "Organize imports" },
+        ["<leader>io"] = { ":TSToolsOrganizeImports<cr>", desc = "Organize imports" },
         -- TypeScript: remove unused
-        ["<leader>ir"] = { ":TypescriptRemoveUnused<cr>", desc = "Remove unused" },
+        ["<leader>ir"] = { ":TSToolsRemoveUnused<cr>", desc = "Remove unused" },
         -- restart LSP
         ["<leader>rs"] = { ":LspRestart<cr>", desc = "Restart LSP" },
         -- show LSP references
@@ -124,11 +127,17 @@ return {
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         -- ctl-b - comment
         -- ["<C-b>"] = {
+        --
+        -- opt-/ - comment
+        ["<M-/>"] = { "<cmd>CommentToggle<cr>", desc = "Comment" },
+
+        -- reload config
+        ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
       },
       -- insert mode
       i = {
         -- save file
-        ["<C-s>"] = { "<esc>:w!<cr>", desc = "Save File" }, -- change description but the same command
+        ["<C-s>"] = { ":w<cr>", desc = "Save File" },
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         -- ctl-b - comment
@@ -145,6 +154,8 @@ return {
         -- ["<esc>"] = false,
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
+        -- opt-/ - comment
+        ["<M-/>"] = { "gcc", desc = "Comment" },
       },
     },
   },
