@@ -96,12 +96,20 @@ return {
           '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
           desc = "Jump to definition in horizontal split",
         },
+
+        -- vtsls
+        -- ["<leader>im"] = { ":TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
+        -- ["<leader>io"] = { ":TSToolsOrganizeImports<cr>", desc = "Organize imports" },
+        -- ["<leader>ir"] = { ":TSToolsRemoveUnused<cr>", desc = "Remove unused" },
+
+        -- tsserver
         -- TypeScript: add missing imports
         ["<leader>im"] = { ":TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
         -- TypeScript: organize imports
         ["<leader>io"] = { ":TSToolsOrganizeImports<cr>", desc = "Organize imports" },
         -- TypeScript: remove unused
         ["<leader>ir"] = { ":TSToolsRemoveUnused<cr>", desc = "Remove unused" },
+
         -- restart LSP
         ["<leader>rs"] = { ":LspRestart<cr>", desc = "Restart LSP" },
         -- show LSP references
@@ -137,7 +145,7 @@ return {
       -- insert mode
       i = {
         -- save file
-        ["<C-s>"] = { ":w<cr>", desc = "Save File" },
+        ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         -- ctl-b - comment

@@ -43,9 +43,9 @@ return {
       enable = true,
     }
 
-    opts.autotag = {
-      enable = true,
-    }
+    -- opts.autotag = {
+    --   enable = true,
+    -- }
 
     opts.auto_install = true
   end,
