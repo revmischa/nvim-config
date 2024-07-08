@@ -104,11 +104,13 @@ return {
 
         -- tsserver
         -- TypeScript: add missing imports
-        ["<leader>im"] = { ":TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
+        ["<leader>im"] = { ":VtsExec add_missing_imports<cr>", desc = "Add missing imports" },
         -- TypeScript: organize imports
-        ["<leader>io"] = { ":TSToolsOrganizeImports<cr>", desc = "Organize imports" },
+        ["<leader>io"] = { ":VtsExec organize_imports<cr>", desc = "Organize imports" },
         -- TypeScript: remove unused
-        ["<leader>ir"] = { ":TSToolsRemoveUnused<cr>", desc = "Remove unused" },
+        ["<leader>ir"] = { ":VtsExec remove_unused<cr>", desc = "Remove unused" },
+        -- TypeScript: fix all
+        ["<leader>if"] = { ":VtsExec fix_all<cr>", desc = "Fix all" },
 
         -- restart LSP
         ["<leader>rs"] = { ":LspRestart<cr>", desc = "Restart LSP" },
