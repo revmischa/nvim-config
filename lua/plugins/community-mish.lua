@@ -6,7 +6,8 @@ return {
 
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
-  { import = "astrocommunity.editing-support.multicursors-nvim" },
+  -- errors
+  -- { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.editing-support.text-case-nvim" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
