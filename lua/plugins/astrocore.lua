@@ -139,7 +139,7 @@ return {
         -- ["<C-b>"] = {
         --
         -- opt-/ - comment
-        ["<M-/>"] = { "<cmd>CommentToggle<cr>", desc = "Comment" },
+        ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
 
         -- reload config
         ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
@@ -150,8 +150,9 @@ return {
         ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
-        -- ctl-b - comment
-        -- ["<C-b>"] = { "<cmd>CommentToggle<cr>", desc = "Comment" },
+
+        -- opt-/ - comment
+        ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
 
         -- next copilot suggestion
         ["<C-n>"] = {
@@ -165,7 +166,7 @@ return {
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         -- opt-/ - comment
-        ["<M-/>"] = { "gcc", desc = "Comment" },
+        ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
       },
     },
   },

@@ -14,7 +14,62 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
 
+  -- VIBE CODING
   { import = "astrocommunity.completion.copilot-lua-cmp" },
+  {
+    import = "astrocommunity.completion.avante-nvim",
+    -- opts = function(_, _opts)
+    --   local prefix = "<Leader>a"
+    -- _opts.mappings.ask = prefix .. "<CR>"
+    -- _opts.mappings = {
+    --
+    --   ask = prefix .. "<CR>",
+    --   edit = prefix .. "e",
+    --   refresh = prefix .. "r",
+    --   focus = prefix .. "f",
+    --   toggle = {
+    --     default = prefix .. "t",
+    --     debug = prefix .. "d",
+    --     hint = prefix .. "h",
+    --     suggestion = prefix .. "s",
+    --     repomap = prefix .. "R",
+    --   },
+    --   diff = {
+    --     next = "]c",
+    --     prev = "[c",
+    --   },
+    --   files = {
+    --     add_current = prefix .. ".",
+    --   },
+    -- }
+    -- return _opts
+    -- end,
+    --
+
+    -- ignored for some reason
+    -- opts = {
+    --   mappings = {
+    --     ask = "<Leader>a<CR>",
+    --     edit = "<Leader>ae",
+    --     refresh = "<Leader>ar",
+    --     focus = "<Leader>af",
+    --     toggle = {
+    --       default = "<Leader>at",
+    --       debug = "<Leader>ad",
+    --       hint = "<Leader>ah",
+    --       suggestion = "<Leader>as",
+    --       repomap = "<Leader>aR",
+    --     },
+    --     diff = {
+    --       next = "]c",
+    --       prev = "[c",
+    --     },
+    --     files = {
+    --       add_current = "<Leader>a.",
+    --     },
+    --   },
+    -- },
+  },
 
   -- {
   --   import = "astrocommunity.completion.copilot-lua-cmp",
@@ -78,18 +133,18 @@ return {
   -- markdown
   { import = "astrocommunity.pack.markdown" },
 
-  -- cooler popup/command dialogs
-  { import = "astrocommunity.utility.noice-nvim" },
-  {
-    "folke/noice.nvim",
-    opts = {
-      lsp = {
-        signature = {
-          enabled = false,
-        },
-      },
-    },
-  },
+  -- cooler popup/command dialogs (toast and modal dialogs)
+  -- { import = "astrocommunity.utility.noice-nvim" },
+  -- {
+  --   "folke/noice.nvim",
+  --   opts = {
+  --     lsp = {
+  --       signature = {
+  --         enabled = false,
+  --       },
+  --     },
+  --   },
+  -- },
 
   -- debugging
   -- { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
