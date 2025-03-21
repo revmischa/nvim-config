@@ -29,6 +29,9 @@ return {
 
   -- { import = "astrocommunity.colorscheme.catppuccin" },
 
+  -- git
+  { import = "astrocommunity.git.fugit2-nvim" },
+
   -- VIBE CODING
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   {
