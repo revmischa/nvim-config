@@ -1,12 +1,22 @@
-# AstroNvim Template
+# Mischa's Neovim Config
 
-**NOTE:** This is for AstroNvim v4+
+This is a great setup for neovim for easy navigation and LSP integrations.
 
-A template for getting started with [AstroNvim](https://github.com/AstroNvim/AstroNvim)
+It's based on AstroNvim.
+
+## 🧐 Features
+
+- Lazy loading with `lazy`
+- Automatically `cd` to project root
+- Telescope everything
+- Copilot and avante for AI completion and cursor-style chat
+- All TypeScript support plus tailwind
+- Full language support for common languages, easy to add more packs from AstroNvim
+- Auto session restore per-project
 
 ## 🛠️ Installation
 
-#### Make a backup of your current nvim and shared folder
+#### (Optional) Make a backup of your current nvim and shared folder
 
 ```shell
 mv ~/.config/nvim ~/.config/nvim.bak
@@ -15,16 +25,10 @@ mv ~/.local/state/nvim ~/.local/state/nvim.bak
 mv ~/.cache/nvim ~/.cache/nvim.bak
 ```
 
-#### Create a new user repository from this template
-
-Press the "Use this template" button above to create a new repository to store your user configuration.
-
-You can also just clone this repository directly if you do not want to track your user configuration in GitHub.
-
 #### Clone the repository
 
 ```shell
-git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
+git clone https://github.com/revmischa/nvim ~/.config/nvim
 ```
 
 #### Start Neovim
@@ -32,3 +36,11 @@ git clone https://github.com/<your_user>/<your_repository> ~/.config/nvim
 ```shell
 nvim
 ```
+
+## ⌥ Keymaps
+
+The leader key is spacebar. Press it to see what you can do.
+
+Press space-f-k to see a list of all key mappings.
+
+Most of the key bindings are configured in `[lua/plugins/astrocore.lua](lua/plugins/astrocore.lua)`.

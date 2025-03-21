@@ -2,6 +2,7 @@ return {
   "FeiyouG/commander.nvim",
   dependencies = { "nvim-telescope/telescope.nvim" },
   keys = {
+    -- add commands here to your palette
     { "<leader><leader>", "<CMD>Telescope oldfiles<CR>", mode = "n", desc = "Recent files" },
     { "<leader>ar", "<cmd>AstroReload<cr>", mode = "n", desc = "Reload Astro" },
     { "<leader>im", ":VtsExec add_missing_imports<cr>", desc = "Add missing imports" },
