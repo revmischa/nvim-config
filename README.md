@@ -43,4 +43,4 @@ The leader key is spacebar. Press it to see what you can do.
 
 Press space-f-k to see a list of all key mappings.
 
-Most of the key bindings are configured in `[lua/plugins/astrocore.lua](lua/plugins/astrocore.lua)`.
+Most of the key bindings are configured in [lua/plugins/astrocore.lua](lua/plugins/astrocore.lua).
