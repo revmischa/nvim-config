@@ -146,6 +146,10 @@ return {
 
         -- command palette
         ["<leader>z"] = { "<cmd>Telescope commander<CR>", desc = "Command Palette" },
+
+        -- fugit2
+        ["<C-q>"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
+        ["<leader>gg"] = { "<cmd>Fugit2Graph<CR>", desc = "Git Status" },
       },
       -- insert mode
       i = {
