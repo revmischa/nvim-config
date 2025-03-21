@@ -9,10 +9,11 @@ It's based on AstroNvim.
 - Lazy loading with `lazy`
 - Automatically `cd` to project root
 - Telescope everything
-- Copilot and avante for AI completion and cursor-style chat
+- Copilot and [avante](https://github.com/yetone/avante.nvim) for AI completion and cursor-style chat
 - All TypeScript support plus tailwind
-- Full language support for common languages, easy to add more packs from AstroNvim
+- Full language support for common languages, [easy to add more packs from AstroNvim](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack)
 - Auto session restore per-project
+- Git UI with [fugit2](https://github.com/SuperBo/fugit2.nvim)
 
 ## 🛠️ Installation
 
