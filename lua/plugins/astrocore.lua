@@ -26,7 +26,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        relativenumber = true, -- sets vim.opt.relativenumber
+        relativenumber = false, -- sets vim.opt.relativenumber
         number = true, -- sets vim.opt.number
         spell = false, -- sets vim.opt.spell
         signcolumn = "auto", -- sets vim.opt.signcolumn to auto
@@ -143,6 +143,9 @@ return {
 
         -- reload config
         ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
+
+        -- command palette
+        ["<leader>z"] = { "<cmd>Telescope commander<CR>", desc = "Command Palette" },
       },
       -- insert mode
       i = {
@@ -150,6 +153,9 @@ return {
         ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
+
+        -- command palette
+        ["<C-S-p>"] = { "<cmd>Telescope commander<CR>", desc = "Command Palette" },
 
         -- opt-/ - comment
         ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },

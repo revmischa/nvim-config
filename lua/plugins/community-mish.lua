@@ -12,6 +12,21 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
 
+  -- restore sessions
+  { import = "astrocommunity.recipes.auto-session-restore" },
+
+  -- command palette with telescope recipe for LSP
+  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+
+  -- window separator
+  { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
+
+  -- key binding helper (which-key is better)
+  -- { import = "astrocommunity.keybinding.mini-clue" },
+
+  -- IDE-like breadcrumbs
+  -- { import = "astrocommunity.bars-and-lines.dropbar-nvim" },
+
   -- { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- VIBE CODING
@@ -95,6 +110,7 @@ return {
 
   -- typescript
   { import = "astrocommunity.pack.typescript" },
+  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- rust pack
   { import = "astrocommunity.pack.rust" },

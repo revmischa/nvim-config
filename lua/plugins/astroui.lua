@@ -26,6 +26,11 @@ return {
         -- ["@String"] = { fg = "#ff00ff", bg = "NONE" },
       },
     },
+    status = {
+      icon_highlights = {
+        breadcrumbs = true,
+      },
+    },
     -- Icons can be configured throughout the interface
     icons = {
       -- configure the loading of the lsp in the status line
