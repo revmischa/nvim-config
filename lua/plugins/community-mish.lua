@@ -32,6 +32,11 @@ return {
   -- git
   { import = "astrocommunity.git.fugit2-nvim" },
 
+  -- nvchad status line
+  -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
+  -- vscode winbar (status line for the top of the window)
+  { import = "astrocommunity.recipes.heirline-vscode-winbar" },
+
   -- VIBE CODING
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   {

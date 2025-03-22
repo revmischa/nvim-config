@@ -13,7 +13,7 @@ It's based on [AstroNvim](https://astronvim.com/).
 - All TypeScript support plus tailwind
 - Full language support for common languages, [easy to add more packs from AstroNvim](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack)
 - Auto session restore per-project
-- Git UI with [fugit2](https://github.com/SuperBo/fugit2.nvim)
+- Git UI with [fugit2](https://github.com/SuperBo/fugit2.nvim) (requires libgit2 installed)
 
 ## 🛠️ Installation
 
