@@ -2,7 +2,7 @@
 
 This is a great setup for neovim for easy navigation and LSP integrations.
 
-It's based on AstroNvim.
+It's based on [AstroNvim](https://astronvim.com/).
 
 ## 🧐 Features
 
