@@ -118,7 +118,7 @@ return {
 
   -- typescript
   { import = "astrocommunity.pack.typescript" },
-  { import = "astrocommunity.lsp.ts-error-translator-nvim" },
+  -- { import = "astrocommunity.lsp.ts-error-translator-nvim" },
 
   -- rust pack
   { import = "astrocommunity.pack.rust" },
