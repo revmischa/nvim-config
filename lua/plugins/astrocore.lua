@@ -149,7 +149,8 @@ return {
 
         -- fugit2
         ["<C-q>"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
-        ["<leader>gg"] = { "<cmd>Fugit2Graph<CR>", desc = "Git Status" },
+        ["<leader>gf"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
+        ["<leader>gG"] = { "<cmd>Fugit2Graph<CR>", desc = "Git Graph" },
       },
       -- insert mode
       i = {
