@@ -12,6 +12,8 @@ return {
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
   { import = "astrocommunity.editing-support.telescope-undo-nvim" },
 
+  { import = "astrocommunity.search.grug-far-nvim" },
+
   -- restore sessions
   { import = "astrocommunity.recipes.auto-session-restore" },
 
