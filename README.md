@@ -8,7 +8,7 @@ It's based on [AstroNvim](https://astronvim.com/) (see: [features](https://docs.
 
 - Lazy loading with `lazy`
 - Automatically `cd` to project root
-- Telescope everything
+- Snacks everything
 - Copilot and [avante](https://github.com/yetone/avante.nvim) for AI completion and cursor-style chat
 - All TypeScript support plus tailwind
 - Full language support for common languages, [easy to add more packs from AstroNvim](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack)

@@ -10,7 +10,7 @@ return {
   -- { import = "astrocommunity.editing-support.multicursors-nvim" },
   { import = "astrocommunity.editing-support.text-case-nvim" },
   { import = "astrocommunity.editing-support.rainbow-delimiters-nvim" },
-  { import = "astrocommunity.editing-support.telescope-undo-nvim" },
+  -- { import = "astrocommunity.editing-support.telescope-undo-nvim" },
 
   { import = "astrocommunity.search.grug-far-nvim" },
 
@@ -18,7 +18,7 @@ return {
   { import = "astrocommunity.recipes.auto-session-restore" },
 
   -- command palette with telescope recipe for LSP
-  { import = "astrocommunity.recipes.telescope-lsp-mappings" },
+  -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 
   -- window separator
   { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
@@ -40,7 +40,7 @@ return {
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
 
   -- VIBE CODING
-  { import = "astrocommunity.completion.copilot-lua-cmp" },
+  { import = "astrocommunity.completion.copilot-lua" },
   {
     import = "astrocommunity.completion.avante-nvim",
     -- opts = function(_, _opts)

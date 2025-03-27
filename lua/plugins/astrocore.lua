@@ -68,7 +68,7 @@ return {
         ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 
         -- open files (hidden)
-        ["<leader>fv"] = { ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', desc = "Find hidden" },
+        -- ["<leader>fv"] = { ':lua require"telescope.builtin".find_files({ hidden = true })<CR>', desc = "Find hidden" },
         -- quick save
         -- ["<C-s>"] = { ":w<cr>", desc = "Save File" },
         ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
@@ -86,16 +86,17 @@ return {
         ["<leader>q"] = { ":q<cr>", desc = "Close window" },
         -- jump to definition
         ["<leader>jd"] = { ":lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition" },
-        -- jump to definition in vertical split
-        ["<leader>jj"] = {
-          '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
-          desc = "Jump to definition in vertical split",
-        },
-        -- jump to definition in horizontal split
-        ["<leader>jh"] = {
-          '<cmd>lua require"telescope.builtin".lsp_definitions({jump_type="split"})<CR>',
-          desc = "Jump to definition in horizontal split",
-        },
+
+        -- -- jump to definition in vertical split
+        -- ["<leader>jj"] = {
+        --   '<cmd>lua require"snacks.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
+        --   desc = "Jump to definition in vertical split",
+        -- },
+        -- -- jump to definition in horizontal split
+        -- ["<leader>jh"] = {
+        --   '<cmd>lua require"snacks.builtin".lsp_definitions({jump_type="split"})<CR>',
+        --   desc = "Jump to definition in horizontal split",
+        -- },
 
         -- vtsls
         -- ["<leader>im"] = { ":TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
@@ -119,17 +120,15 @@ return {
         -- LSP rename current symbol
         ["<F2>"] = { ":LspRename<cr>", desc = "LSP rename current symbol" },
         -- recent files
-        ["<leader><leader>"] = { ":Telescope oldfiles<cr>", desc = "Recent files" },
+        ["<leader><leader>"] = { function() Snacks.picker.recent() end, desc = "Recent files" },
         -- don't copy deleted chat
         ["x"] = { '"_x' },
-        -- open astro when no buffers are open
-        ["<leader>c"] = {
+        -- open astro snacks when no buffers are open
+        ["<Leader>c"] = {
           function()
             local bufs = vim.fn.getbufinfo { buflisted = true }
-            require("astronvim.utils.buffer").close(0)
-            if require("astronvim.utils").is_available "alpha-nvim" and not bufs[2] then
-              require("alpha").start(true)
-            end
+            require("astrocore.buffer").close(0)
+            if not bufs[2] then require("snacks").dashboard() end
           end,
           desc = "Close buffer",
         },
@@ -144,9 +143,6 @@ return {
         -- reload config
         ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
 
-        -- command palette
-        ["<leader>z"] = { "<cmd>Telescope commander<CR>", desc = "Command Palette" },
-
         -- fugit2
         ["<C-q>"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
         ["<leader>gf"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
@@ -158,9 +154,6 @@ return {
         ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
         -- toggle terminal
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
-
-        -- command palette
-        ["<C-S-p>"] = { "<cmd>Telescope commander<CR>", desc = "Command Palette" },
 
         -- opt-/ - comment
         ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
