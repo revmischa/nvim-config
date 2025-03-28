@@ -87,16 +87,16 @@ return {
         -- jump to definition
         ["<leader>jd"] = { ":lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition" },
 
-        -- -- jump to definition in vertical split
-        -- ["<leader>jj"] = {
-        --   '<cmd>lua require"snacks.builtin".lsp_definitions({jump_type="vsplit"})<CR>',
-        --   desc = "Jump to definition in vertical split",
-        -- },
-        -- -- jump to definition in horizontal split
-        -- ["<leader>jh"] = {
-        --   '<cmd>lua require"snacks.builtin".lsp_definitions({jump_type="split"})<CR>',
-        --   desc = "Jump to definition in horizontal split",
-        -- },
+        -- jump to definition in vertical split
+        ["<leader>jj"] = {
+          ":vsplit | lua vim.lsp.buf.definition()<CR>",
+          desc = "Jump to definition in vertical split",
+        },
+        -- jump to definition in horizontal split
+        ["<leader>jh"] = {
+          ":split | lua vim.lsp.buf.definition()<CR>",
+          desc = "Jump to definition in horizontal split",
+        },
 
         -- vtsls
         -- ["<leader>im"] = { ":TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
