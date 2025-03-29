@@ -147,6 +147,9 @@ return {
         ["<C-q>"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
         ["<leader>gf"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
         ["<leader>gG"] = { "<cmd>Fugit2Graph<CR>", desc = "Git Graph" },
+
+        -- grug far find/replace
+        ["<leader>fR"] = { "<cmd>GrugFar<CR>",desc="Grug Find/Replace" },
       },
       -- insert mode
       i = {
