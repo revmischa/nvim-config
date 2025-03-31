@@ -75,7 +75,7 @@ return {
         -- clear search highlights
         -- ["<leader>nh"] = { ":nohlsearch<cr>", desc = "Clear search highlights" },
         -- copy relative path of current file to clipboard
-        ["<leader>fy"] = { ":let @+ = expand('%:p')<cr>", desc = "Copy relative path" },
+        ["<leader>fy"] = { ":let @+ = expand('%')<cr>", desc = "Copy relative path" },
         -- split vertically
         ["<leader>sv"] = { ":vsplit<cr>", desc = "Split vertically" },
         -- split horizontally
