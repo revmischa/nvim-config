@@ -9,9 +9,9 @@ return {
       --   string[] : a list of directory patterns to look for
       --   fun(bufnr: integer): string|string[] : a function that takes a buffer number and outputs detected roots
       detector = {
-        "lsp", -- highest priority is getting workspace from running language servers
+        --  "lsp", -- highest priority is getting workspace from running language servers
         { ".git", "_darcs", ".hg", ".bzr", ".svn" }, -- next check for a version controlled parent directory
-        { "lua", "MakeFile", "package.json" }, -- lastly check for known project root files
+        { "lua", "MakeFile" }, -- lastly check for known project root files
       },
       -- ignore things from root detection
       ignore = {
