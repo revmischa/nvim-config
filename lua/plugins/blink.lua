@@ -4,5 +4,13 @@ return { -- override blink.cmp plugin
     keymap = {
       ["<Tab>"] = { "snippet_forward", "fallback" },
     },
+    cmdline = {
+      enabled = true,
+      completion = {
+        menu = {
+          auto_show = true,
+        },
+      },
+    },
   },
 }
