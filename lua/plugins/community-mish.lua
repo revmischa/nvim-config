@@ -32,7 +32,7 @@ return {
   -- { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- git
-  { import = "astrocommunity.git.fugit2-nvim" },
+  { import = "astrocommunity.git.fugit2-nvim", libgit2_path = "/opt/homebrew/lib/libgit2.dylib" },
 
   -- nvchad status line
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
@@ -114,6 +114,7 @@ return {
   --   --   -- }
   -- },
 
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
   { import = "astrocommunity.git.octo-nvim" },
   { import = "astrocommunity.comment.mini-comment" },
   { import = "astrocommunity.motion.nvim-surround" },
@@ -143,6 +144,7 @@ return {
 
   -- python
   { import = "astrocommunity.pack.python" },
+  { import = "astrocommunity.pack.python-ruff" },
 
   -- toml
   { import = "astrocommunity.pack.toml" },
