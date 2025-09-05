@@ -144,12 +144,27 @@ return {
         ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
 
         -- fugit2
-        ["<C-q>"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
-        ["<leader>gf"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
-        ["<leader>gG"] = { "<cmd>Fugit2Graph<CR>", desc = "Git Graph" },
+        -- ["<C-q>"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
+        -- ["<leader>gf"] = { "<cmd>Fugit2<CR>", desc = "Git Status" },
+        -- ["<leader>gG"] = { "<cmd>Fugit2Graph<CR>", desc = "Git Graph" },
+
+        -- neogit
+        ["<C-q>"] = { "<cmd>Neogit<CR>", desc = "Git Status" },
+        ["<leader>gf"] = { "<cmd>Neogit<CR>", desc = "Git Status" },
+        ["<leader>gG"] = { "<cmd>Neogit kind=tab<CR>", desc = "Git Graph" },
 
         -- grug far find/replace
-        ["<leader>fR"] = { "<cmd>GrugFar<CR>",desc="Grug Find/Replace" },
+        ["<leader>fR"] = { "<cmd>GrugFar<CR>", desc = "Grug Find/Replace" },
+
+        -- git-conflict keybindings
+        ["<leader>k"] = { desc = "Git Conflict" },
+        ["<leader>ko"] = { "<cmd>GitConflictChooseOurs<CR>", desc = "Choose ours" },
+        ["<leader>kt"] = { "<cmd>GitConflictChooseTheirs<CR>", desc = "Choose theirs" },
+        ["<leader>kb"] = { "<cmd>GitConflictChooseBoth<CR>", desc = "Choose both" },
+        ["<leader>kn"] = { "<cmd>GitConflictChooseNone<CR>", desc = "Choose none" },
+        ["<leader>k]"] = { "<cmd>GitConflictNextConflict<CR>", desc = "Next conflict" },
+        ["<leader>k["] = { "<cmd>GitConflictPrevConflict<CR>", desc = "Previous conflict" },
+        ["<leader>kq"] = { "<cmd>GitConflictListQf<CR>", desc = "List conflicts in quickfix" },
       },
       -- insert mode
       i = {

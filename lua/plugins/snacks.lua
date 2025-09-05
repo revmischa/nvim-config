@@ -1,8 +1,17 @@
 return {
   "folke/snacks.nvim",
   opts = {
-    picker = {},
-    explorer = {},
+    picker = {
+      hidden = true,
+      win = {
+        input = {
+          keys = {
+            ["<C-c>"] = { "close", mode = { "n", "i" } },
+          },
+        },
+      },
+    },
+    explorer = { enabled = false },
   },
   keys = {
     -- Top Pickers & Explorer
@@ -11,7 +20,7 @@ return {
     { "<leader>/", function() Snacks.picker.grep() end, desc = "Grep" },
     { "<leader>:", function() Snacks.picker.command_history() end, desc = "Command History" },
     { "<leader>n", function() Snacks.picker.notifications() end, desc = "Notification History" },
-    { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
+    -- { "<leader>e", function() Snacks.explorer() end, desc = "File Explorer" },
     -- find
     { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
     { "<leader>fc", function() Snacks.picker.files { cwd = vim.fn.stdpath "config" } end, desc = "Find Config File" },

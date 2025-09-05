@@ -32,7 +32,13 @@ return {
   -- { import = "astrocommunity.colorscheme.catppuccin" },
 
   -- git
-  { import = "astrocommunity.git.fugit2-nvim", libgit2_path = "/opt/homebrew/lib/libgit2.dylib" },
+  -- { import = "astrocommunity.git.fugit2-nvim", libgit2_path = "/opt/homebrew/lib/libgit2.dylib" },
+  { import = "astrocommunity.git.neogit" },
+  { "akinsho/git-conflict.nvim", version = "*", config = true },
+  { import = "astrocommunity.git.octo-nvim" },
+
+  { import = "astrocommunity.comment.mini-comment" },
+  { import = "astrocommunity.motion.nvim-surround" },
 
   -- nvchad status line
   -- { import = "astrocommunity.recipes.heirline-nvchad-statusline" },
@@ -40,6 +46,7 @@ return {
   { import = "astrocommunity.recipes.heirline-vscode-winbar" },
 
   -- VIBE CODING
+  { import = "astrocommunity.recipes.ai" },
   { import = "astrocommunity.completion.copilot-lua" },
   {
     import = "astrocommunity.completion.avante-nvim",
@@ -113,11 +120,6 @@ return {
   --   --   --   }
   --   --   -- }
   -- },
-
-  { "akinsho/git-conflict.nvim", version = "*", config = true },
-  { import = "astrocommunity.git.octo-nvim" },
-  { import = "astrocommunity.comment.mini-comment" },
-  { import = "astrocommunity.motion.nvim-surround" },
 
   -- typescript
   { import = "astrocommunity.pack.typescript" },
