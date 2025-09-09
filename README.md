@@ -10,10 +10,13 @@ It's based on [AstroNvim](https://astronvim.com/) (see: [features](https://docs.
 - Automatically `cd` to project root
 - Snacks everything
 - Copilot and [avante](https://github.com/yetone/avante.nvim) for AI completion and cursor-style chat
+- MCP Hub for connecting MCP servers
+- Claude code
+- Python, uv, auto venv selection
 - All TypeScript support plus tailwind
 - Full language support for common languages, [easy to add more packs from AstroNvim](https://github.com/AstroNvim/astrocommunity/tree/main/lua/astrocommunity/pack)
 - Auto session restore per-project
-- Git UI with [fugit2](https://github.com/SuperBo/fugit2.nvim) (requires libgit2 installed)
+- Git UI with neogit
 
 ## 🛠️ Installation
 
