@@ -33,6 +33,7 @@ return {
 
   -- git
   -- { import = "astrocommunity.git.fugit2-nvim", libgit2_path = "/opt/homebrew/lib/libgit2.dylib" },
+  { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.neogit" },
   { "akinsho/git-conflict.nvim", version = "*", config = true },
   { import = "astrocommunity.git.octo-nvim" },
@@ -47,61 +48,102 @@ return {
 
   -- VIBE CODING
   { import = "astrocommunity.recipes.ai" },
+  {
+    import = "astrocommunity.editing-support.mcphub-nvim",
+    opts = {
+      extensions = {
+        avante = {
+          make_slash_commands = true, -- make /slash commands from MCP server prompts
+        },
+      },
+    },
+  },
   { import = "astrocommunity.completion.copilot-lua" },
   {
     import = "astrocommunity.completion.avante-nvim",
-    -- opts = function(_, _opts)
-    --   local prefix = "<Leader>a"
-    -- _opts.mappings.ask = prefix .. "<CR>"
-    -- _opts.mappings = {
-    --
-    --   ask = prefix .. "<CR>",
-    --   edit = prefix .. "e",
-    --   refresh = prefix .. "r",
-    --   focus = prefix .. "f",
-    --   toggle = {
-    --     default = prefix .. "t",
-    --     debug = prefix .. "d",
-    --     hint = prefix .. "h",
-    --     suggestion = prefix .. "s",
-    --     repomap = prefix .. "R",
-    --   },
-    --   diff = {
-    --     next = "]c",
-    --     prev = "[c",
-    --   },
-    --   files = {
-    --     add_current = prefix .. ".",
-    --   },
-    -- }
-    -- return _opts
-    -- end,
-    --
-
-    -- ignored for some reason
-    -- opts = {
-    --   mappings = {
-    --     ask = "<Leader>a<CR>",
-    --     edit = "<Leader>ae",
-    --     refresh = "<Leader>ar",
-    --     focus = "<Leader>af",
-    --     toggle = {
-    --       default = "<Leader>at",
-    --       debug = "<Leader>ad",
-    --       hint = "<Leader>ah",
-    --       suggestion = "<Leader>as",
-    --       repomap = "<Leader>aR",
-    --     },
-    --     diff = {
-    --       next = "]c",
-    --       prev = "[c",
-    --     },
-    --     files = {
-    --       add_current = "<Leader>a.",
-    --     },
-    --   },
-    -- },
+    opts = {
+      instructions_file = "CLAUDE.md",
+      provider = "copilot",
+      providers = {
+        copilot = {
+          model = "copilot/claude-sonnet-4",
+        },
+      },
+      system_prompt = function()
+        local hub = require("mcphub").get_hub_instance()
+        return hub and hub:get_active_servers_prompt() or ""
+      end,
+      -- Using function prevents requiring mcphub before it's loaded
+      custom_tools = function()
+        return {
+          require("mcphub.extensions.avante").mcp_tool(),
+        }
+      end,
+    },
   },
+  -- {
+  --   import = "yetone/avante.nvim",
+  --   opts = {
+  --     instructions_file = "CLAUDE.md",
+  --     provider = "copilot",
+  --     providers = {
+  --       copilot = {
+  --         model = "copilot/claude-sonnet-4",
+  --       },
+  --     },
+  --   },
+  -- opts = function(_, _opts)
+  --   local prefix = "<Leader>a"
+  -- _opts.mappings.ask = prefix .. "<CR>"
+  -- _opts.mappings = {
+  --
+  --   ask = prefix .. "<CR>",
+  --   edit = prefix .. "e",
+  --   refresh = prefix .. "r",
+  --   focus = prefix .. "f",
+  --   toggle = {
+  --     default = prefix .. "t",
+  --     debug = prefix .. "d",
+  --     hint = prefix .. "h",
+  --     suggestion = prefix .. "s",
+  --     repomap = prefix .. "R",
+  --   },
+  --   diff = {
+  --     next = "]c",
+  --     prev = "[c",
+  --   },
+  --   files = {
+  --     add_current = prefix .. ".",
+  --   },
+  -- }
+  -- return _opts
+  -- end,
+  --
+
+  -- ignored for some reason
+  -- opts = {
+  --   mappings = {
+  --     ask = "<Leader>a<CR>",
+  --     edit = "<Leader>ae",
+  --     refresh = "<Leader>ar",
+  --     focus = "<Leader>af",
+  --     toggle = {
+  --       default = "<Leader>at",
+  --       debug = "<Leader>ad",
+  --       hint = "<Leader>ah",
+  --       suggestion = "<Leader>as",
+  --       repomap = "<Leader>aR",
+  --     },
+  --     diff = {
+  --       next = "]c",
+  --       prev = "[c",
+  --     },
+  --     files = {
+  --       add_current = "<Leader>a.",
+  --     },
+  --   },
+  -- },
+  -- },
 
   -- {
   --   import = "astrocommunity.completion.copilot-lua-cmp",

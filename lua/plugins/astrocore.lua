@@ -165,6 +165,9 @@ return {
         ["<leader>k]"] = { "<cmd>GitConflictNextConflict<CR>", desc = "Next conflict" },
         ["<leader>k["] = { "<cmd>GitConflictPrevConflict<CR>", desc = "Previous conflict" },
         ["<leader>kq"] = { "<cmd>GitConflictListQf<CR>", desc = "List conflicts in quickfix" },
+
+        -- toggle avante
+        ["<leader>ua"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
       },
       -- insert mode
       i = {

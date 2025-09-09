@@ -32,6 +32,13 @@ mv ~/.cache/nvim ~/.cache/nvim.bak
 git clone https://github.com/revmischa/nvim-config ~/.config/nvim
 ```
 
+#### (Optional) Install useful tools
+
+```shell
+brew install rg
+npm i -g mcp-hub
+```
+
 #### Start Neovim
 
 ```shell
