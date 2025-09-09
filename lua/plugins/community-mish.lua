@@ -50,35 +50,61 @@ return {
   { import = "astrocommunity.recipes.ai" },
   {
     import = "astrocommunity.editing-support.mcphub-nvim",
+  },
+  {
+    "ravitemer/mcphub.nvim",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
     opts = {
+      auto_approve = true, -- Auto-approve MCP tool calls to avoid confirmation dialogs
       extensions = {
         avante = {
           make_slash_commands = true, -- make /slash commands from MCP server prompts
         },
       },
     },
+    config = function(_, opts)
+      require("mcphub").setup(opts)
+    end,
   },
   { import = "astrocommunity.completion.copilot-lua" },
+  { import = "astrocommunity.completion.avante-nvim" },
   {
-    import = "astrocommunity.completion.avante-nvim",
+    "yetone/avante.nvim",
     opts = {
       instructions_file = "CLAUDE.md",
       provider = "copilot",
       providers = {
         copilot = {
-          model = "copilot/claude-sonnet-4",
+          model = "claude-sonnet-4",
         },
       },
       system_prompt = function()
-        local hub = require("mcphub").get_hub_instance()
-        return hub and hub:get_active_servers_prompt() or ""
+        local ok, hub = pcall(require, "mcphub")
+        if ok then
+          local instance = hub.get_hub_instance()
+          return instance and instance:get_active_servers_prompt() or ""
+        end
+        return ""
       end,
-      -- Using function prevents requiring mcphub before it's loaded
       custom_tools = function()
-        return {
-          require("mcphub.extensions.avante").mcp_tool(),
-        }
+        local ok, mcphub = pcall(require, "mcphub.extensions.avante")
+        if ok then return { mcphub.mcp_tool() } end
+        return {}
       end,
+      disabled_tools = {
+        "list_files",    -- Built-in file operations (conflicts with MCP filesystem server)
+        "search_files",
+        "read_file",
+        "create_file",
+        "rename_file",
+        "delete_file",
+        "create_dir",
+        "rename_dir",
+        "delete_dir",
+        "bash",         -- Built-in terminal access (conflicts with MCP neovim server)
+      },
     },
   },
   -- {
