@@ -64,9 +64,7 @@ return {
         },
       },
     },
-    config = function(_, opts)
-      require("mcphub").setup(opts)
-    end,
+    config = function(_, opts) require("mcphub").setup(opts) end,
   },
   { import = "astrocommunity.completion.copilot-lua" },
   { import = "astrocommunity.completion.avante-nvim" },
@@ -94,7 +92,7 @@ return {
         return {}
       end,
       disabled_tools = {
-        "list_files",    -- Built-in file operations (conflicts with MCP filesystem server)
+        "list_files", -- Built-in file operations (conflicts with MCP filesystem server)
         "search_files",
         "read_file",
         "create_file",
@@ -103,7 +101,7 @@ return {
         "create_dir",
         "rename_dir",
         "delete_dir",
-        "bash",         -- Built-in terminal access (conflicts with MCP neovim server)
+        "bash", -- Built-in terminal access (conflicts with MCP neovim server)
       },
     },
   },
@@ -230,6 +228,9 @@ return {
 
   -- markdown
   { import = "astrocommunity.pack.markdown" },
+
+  -- terraform
+  { import = "astrocommunity.pack.terraform" },
 
   -- cooler popup/command dialogs (toast and modal dialogs)
   -- { import = "astrocommunity.utility.noice-nvim" },

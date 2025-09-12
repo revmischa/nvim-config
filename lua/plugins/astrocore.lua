@@ -156,6 +156,9 @@ return {
         -- grug far find/replace
         ["<leader>fR"] = { "<cmd>GrugFar<CR>", desc = "Grug Find/Replace" },
 
+        -- find word under cursor
+        ["<leader>fd"] = { function() Snacks.picker.grep_word() end, desc = "Find word under cursor" },
+
         -- git-conflict keybindings
         ["<leader>k"] = { desc = "Git Conflict" },
         ["<leader>ko"] = { "<cmd>GitConflictChooseOurs<CR>", desc = "Choose ours" },
@@ -166,8 +169,16 @@ return {
         ["<leader>k["] = { "<cmd>GitConflictPrevConflict<CR>", desc = "Previous conflict" },
         ["<leader>kq"] = { "<cmd>GitConflictListQf<CR>", desc = "List conflicts in quickfix" },
 
-        -- toggle avante
+        -- toggle avante sidebar
         ["<leader>ua"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
+        ["<M-S-l>"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
+        -- focus avante sidebar
+        ["<M-l>"] = { "<cmd>AvanteFocus<CR>", desc = "Focus Avante" },
+        -- add file to avante chat
+        -- ["<leader>fA"] = { "<cmd>AvanteAddFile<CR>", desc = "Add file to Avante chat" },
+
+        -- close tab
+        ["<leader>z"] = { "<cmd>tabclose<CR>", desc = "Close tab" },
       },
       -- insert mode
       i = {
@@ -184,6 +195,9 @@ return {
           function() require("copilot.suggestion").next() end,
           desc = "Next Copilot Suggestion",
         },
+
+        -- toggle avante sidebar
+        ["<M-S-l>"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
       },
       t = {
         -- setting a mapping to false will disable it
