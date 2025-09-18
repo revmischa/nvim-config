@@ -4,6 +4,9 @@ return {
   build = ":Copilot auth",
   event = "BufReadPost",
   opts = {
+    filetypes = {
+      ["*"] = true,
+    },
     suggestion = {
       keymap = {
         accept = false, -- handled by completion engine
