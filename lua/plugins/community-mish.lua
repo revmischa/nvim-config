@@ -103,6 +103,43 @@ return {
         "delete_dir",
         "bash", -- Built-in terminal access (conflicts with MCP neovim server)
       },
+
+      -- https://github.com/yetone/avante.nvim?tab=readme-ov-file#fast-apply
+      behaviour = {
+        enable_fastapply = true, -- Enable Fast Apply feature
+      },
+
+      -- https://github.com/yetone/avante.nvim?tab=readme-ov-file#acp-configuration
+      acp_providers = {
+        ["claude-code"] = {
+          command = "npx",
+          args = { "@zed-industries/claude-code-acp" },
+          env = {
+            NODE_NO_WARNINGS = "1",
+            ANTHROPIC_API_KEY = os.getenv "ANTHROPIC_API_KEY",
+          },
+        },
+      },
+
+      dependencies = {
+        {
+          -- support for image pasting
+          "HakonHarnes/img-clip.nvim",
+          event = "VeryLazy",
+          opts = {
+            -- recommended settings
+            default = {
+              embed_image_as_base64 = false,
+              prompt_for_file_name = false,
+              drag_and_drop = {
+                insert_mode = true,
+              },
+              -- required for Windows users
+              use_absolute_path = true,
+            },
+          },
+        },
+      },
     },
   },
   -- {
@@ -210,8 +247,7 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.cmake" },
 
-  -- python
-  { import = "astrocommunity.pack.python" },
+  -- python (using ruff pack only to avoid conflicts with black/isort)
   { import = "astrocommunity.pack.python-ruff" },
 
   -- toml
@@ -246,10 +282,11 @@ return {
   -- },
 
   -- debugging
-  -- { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
-  -- { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
-  -- { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
-  -- { import = "astrocommunity.debugging.telescope-dap-nvim" },
+  { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
+  { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
+  { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
+  { import = "astrocommunity.debugging.telescope-dap-nvim" },
+  { import = "astrocommunity.debugging.nvim-dap-view" },
 
   -- trouble
   {

@@ -157,7 +157,7 @@ return {
         ["<leader>fR"] = { "<cmd>GrugFar<CR>", desc = "Grug Find/Replace" },
 
         -- find word under cursor
-        ["<leader>fd"] = { function() Snacks.picker.grep_word() end, desc = "Find word under cursor" },
+        ["<leader>fw"] = { function() Snacks.picker.grep_word() end, desc = "Find word under cursor" },
 
         -- git-conflict keybindings
         ["<leader>k"] = { desc = "Git Conflict" },
@@ -179,6 +179,12 @@ return {
 
         -- close tab
         ["<leader>z"] = { "<cmd>tabclose<CR>", desc = "Close tab" },
+
+        -- close other buffers
+        ["<leader>bo"] = {
+          "<cmd>BufOnly<CR>",
+          desc = "Close other buffers",
+        },
       },
       -- insert mode
       i = {
@@ -206,6 +212,11 @@ return {
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         -- opt-/ - comment
         ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
+      },
+      -- select mode
+      v = {
+        -- sort lines
+        ["<leader>sl"] = { ":sort<cr>", desc = "Sort lines" },
       },
     },
   },
