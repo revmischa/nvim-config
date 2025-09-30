@@ -13,10 +13,15 @@ return {
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
-        -- Normal = { bg = "#000000" },
+
+        -- pure black bg for active window - best contrast, easy on eyes
+        Normal = { bg = "#000000" },
+
         -- Fix unreadable grey inactive text
-        ["@text.inactive"] = { fg = "#797D87" },
-        ["Comment"] = { fg = "#797D87" },
+        -- ["@text.inactive"] = { fg = "#797D87" },
+
+        -- make comments more readable
+        ["Comment"] = { fg = "#999D97" },
       },
       astrotheme = { -- a table of overrides/changes when applying the astrotheme theme
         -- Normal = { bg = "#000000" },
