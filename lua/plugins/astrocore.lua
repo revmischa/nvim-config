@@ -156,7 +156,7 @@ return {
         -- grug far find/replace
         ["<leader>fR"] = { "<cmd>GrugFar<CR>", desc = "Grug Find/Replace" },
         -- find word
-        ["<leader>ff"] = { function() Snacks.picker.grep_prompt() end, desc = "Find word" },
+        -- ["<leader>ff"] = { function() Snacks.picker.grep_prompt() end, desc = "Find word" },
 
         -- find word under cursor
         ["<leader>fw"] = { function() Snacks.picker.grep_word() end, desc = "Find word under cursor" },
