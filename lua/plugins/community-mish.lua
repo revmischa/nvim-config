@@ -21,7 +21,7 @@ return {
   -- { import = "astrocommunity.recipes.telescope-lsp-mappings" },
 
   -- window separator
-  { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
+  -- { import = "astrocommunity.split-and-window.colorful-winsep-nvim" },
 
   -- key binding helper (which-key is better)
   -- { import = "astrocommunity.keybinding.mini-clue" },
@@ -73,9 +73,14 @@ return {
     opts = {
       instructions_file = "CLAUDE.md",
       provider = "copilot",
+      -- provider = "claude",
       providers = {
         copilot = {
           model = "claude-sonnet-4",
+        },
+        claude = {
+          endpoint = "https://api.anthropic.com",
+          model = "claude-sonnet-4.5",
         },
       },
       system_prompt = function()

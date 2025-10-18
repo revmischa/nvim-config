@@ -18,7 +18,7 @@ return {
         Normal = { bg = "#000000" },
 
         -- Fix unreadable grey inactive text
-        -- ["@text.inactive"] = { fg = "#797D87" },
+        -- ["@text.inactive"] = { fg = "#f97D87" },
 
         -- make comments more readable
         ["Comment"] = { fg = "#999D97" },
@@ -37,7 +37,7 @@ return {
     palettes = {
       astrodark = {
         ui = {
-          text_inactive = "#999D87",
+          -- text_inactive = "#F99D87",
           none_text = "#999D87",
         },
       },
