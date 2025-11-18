@@ -72,8 +72,8 @@ return {
     "yetone/avante.nvim",
     opts = {
       instructions_file = "CLAUDE.md",
-      provider = "copilot",
-      -- provider = "claude",
+      -- provider = "copilot",
+      provider = "claude",
       providers = {
         copilot = {
           model = "claude-sonnet-4",
