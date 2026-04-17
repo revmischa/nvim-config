@@ -21,8 +21,8 @@ return {
         ensure_installed = { "python" },
       }
 
-      -- Example config: ask for AWS_PROFILE
       dap.configurations.python = {
+        -- Example config: ask for AWS_PROFILE
         {
           type = "python",
           request = "launch",
@@ -31,6 +31,24 @@ return {
           console = "integratedTerminal",
           justMyCode = true,
           env = env,
+        },
+        {
+          type = "python",
+          request = "launch",
+          name = "Pytest: current file (uv)",
+          module = "pytest",
+          args = { "${file}" },
+          console = "integratedTerminal",
+          justMyCode = false,
+        },
+        {
+          type = "python",
+          request = "launch",
+          name = "Pytest: nearest (uv)",
+          module = "pytest",
+          args = { "${file}::${function}" },
+          console = "integratedTerminal",
+          justMyCode = false,
         },
       }
     end,

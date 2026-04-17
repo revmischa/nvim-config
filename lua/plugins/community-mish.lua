@@ -70,17 +70,20 @@ return {
   { import = "astrocommunity.completion.avante-nvim" },
   {
     "yetone/avante.nvim",
+    version = false, -- set this if you want to always pull the latest change
     opts = {
       instructions_file = "CLAUDE.md",
-      -- provider = "copilot",
-      provider = "claude",
+      -- auto_suggestions_provider = "claude",
+      auto_suggestions_provider = "copilot",
+      provider = "copilot",
+      -- provider = "claude",
       providers = {
         copilot = {
-          model = "claude-sonnet-4",
+          model = "gpt-5.1-codex",
         },
         claude = {
           endpoint = "https://api.anthropic.com",
-          model = "claude-sonnet-4.5",
+          model = "claude-sonnet-4-5-20250929",
         },
       },
       system_prompt = function()
@@ -112,6 +115,7 @@ return {
       -- https://github.com/yetone/avante.nvim?tab=readme-ov-file#fast-apply
       behaviour = {
         enable_fastapply = true, -- Enable Fast Apply feature
+        auto_suggestions = true,
       },
 
       -- https://github.com/yetone/avante.nvim?tab=readme-ov-file#acp-configuration
@@ -269,6 +273,7 @@ return {
 
   -- markdown
   { import = "astrocommunity.pack.markdown" },
+  -- { import = "astrocommunity.markdown-and-latex.markdown-preview-nvim" },
 
   -- terraform
   { import = "astrocommunity.pack.terraform" },
@@ -291,7 +296,7 @@ return {
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
   { import = "astrocommunity.debugging.telescope-dap-nvim" },
-  { import = "astrocommunity.debugging.nvim-dap-view" },
+  -- { import = "astrocommunity.debugging.nvim-dap-view" },
 
   -- trouble
   {

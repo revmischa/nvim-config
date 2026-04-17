@@ -76,6 +76,8 @@ return {
         -- ["<leader>nh"] = { ":nohlsearch<cr>", desc = "Clear search highlights" },
         -- copy relative path of current file to clipboard
         ["<leader>fy"] = { ":let @+ = expand('%')<cr>", desc = "Copy relative path" },
+        -- copy absolute path of current file to clipboard
+        ["<leader>fY"] = { ":let @+ = expand('%:p')<cr>", desc = "Copy absolute path" },
         -- split vertically
         ["<leader>sv"] = { ":vsplit<cr>", desc = "Split vertically" },
         -- split horizontally
@@ -187,6 +189,10 @@ return {
           "<cmd>BufOnly<CR>",
           desc = "Close other buffers",
         },
+
+        -- run current pytest file or test under debugger
+        ["<leader>dn"] = { "<cmd>DapPytestNearest<CR>", desc = "Debug nearest pytest function" },
+        ["<leader>dd"] = { "<cmd>DapPytestFile<CR>", desc = "Debug current pytest file" },
       },
       -- insert mode
       i = {
