@@ -3,7 +3,6 @@ return {
     "mfussenegger/nvim-dap",
     dependencies = {
       "mfussenegger/nvim-dap-python",
-      "jay-babu/mason-nvim-dap.nvim",
     },
     config = function()
       local dap = require "dap"
@@ -16,13 +15,7 @@ return {
         end
       end
 
-      -- Mason ensures debugpy is installed
-      require("mason-nvim-dap").setup {
-        ensure_installed = { "python" },
-      }
-
       dap.configurations.python = {
-        -- Example config: ask for AWS_PROFILE
         {
           type = "python",
           request = "launch",
