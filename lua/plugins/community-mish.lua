@@ -67,7 +67,7 @@ return {
     config = function(_, opts) require("mcphub").setup(opts) end,
   },
   { import = "astrocommunity.completion.copilot-lua" },
-  { import = "astrocommunity.completion.avante-nvim" },
+  { import = "astrocommunity.ai.avante-nvim" },
   {
     "yetone/avante.nvim",
     version = false, -- set this if you want to always pull the latest change
@@ -256,8 +256,8 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.cmake" },
 
-  -- python (using ruff pack only to avoid conflicts with black/isort)
-  { import = "astrocommunity.pack.python-ruff" },
+  -- python (using ruff only to avoid conflicts with black/isort)
+  { import = "astrocommunity.pack.python.ruff" },
 
   -- toml
   { import = "astrocommunity.pack.toml" },
