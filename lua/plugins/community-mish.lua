@@ -295,7 +295,7 @@ return {
   { import = "astrocommunity.debugging.persistent-breakpoints-nvim" },
   { import = "astrocommunity.debugging.nvim-dap-repl-highlights" },
   { import = "astrocommunity.debugging.nvim-dap-virtual-text" },
-  { import = "astrocommunity.debugging.telescope-dap-nvim" },
+  -- telescope-dap removed in v5 (telescope replaced by snacks picker)
   -- { import = "astrocommunity.debugging.nvim-dap-view" },
 
   -- trouble
