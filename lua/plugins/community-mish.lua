@@ -5,6 +5,7 @@ return {
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
   { import = "astrocommunity.editing-support.refactoring-nvim" },
+  { "ThePrimeagen/refactoring.nvim", dependencies = { "lewis6991/async.nvim" } },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
   -- errors
   -- { import = "astrocommunity.editing-support.multicursors-nvim" },
@@ -174,8 +175,9 @@ return {
   { import = "astrocommunity.pack.cpp" },
   { import = "astrocommunity.pack.cmake" },
 
-  -- python (using ruff only to avoid conflicts with black/isort)
+  -- python
   { import = "astrocommunity.pack.python.ruff" },
+  { import = "astrocommunity.pack.python.basedpyright" },
 
   -- toml
   { import = "astrocommunity.pack.toml" },
