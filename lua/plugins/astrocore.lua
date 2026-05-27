@@ -55,7 +55,7 @@ return {
         L = { function() require("astrocore.buffer").nav(vim.v.count1) end, desc = "Next buffer" },
         H = { function() require("astrocore.buffer").nav(-vim.v.count1) end, desc = "Previous buffer" },
 
-        ["<Leader>bD"] = {
+        ["<leader>bD"] = {
           function()
             require("astroui.status.heirline").buffer_picker(
               function(bufnr) require("astrocore.buffer").close(bufnr) end
@@ -63,7 +63,7 @@ return {
           end,
           desc = "Pick to close",
         },
-        ["<Leader>b"] = { desc = "Buffers" },
+        ["<leader>b"] = { desc = "Buffers" },
         ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 
         ["<C-s>"] = { "<cmd>update<cr>", desc = "Save File" },
@@ -73,7 +73,17 @@ return {
         ["<leader>sv"] = { "<cmd>vsplit<cr>", desc = "Split vertically" },
         ["<leader>sa"] = { "<cmd>split<cr>", desc = "Split horizontally" },
         ["<leader>sQ"] = { "<cmd>MaximizerToggle!<cr>", desc = "Maximize pane" },
-        ["<leader>q"] = { "<cmd>q<cr>", desc = "Close window" },
+        ["<leader>q"] = {
+          function()
+            local ft = vim.bo.filetype
+            if ft == "DiffviewFiles" or ft == "DiffviewFileHistory" or vim.wo.diff then
+              vim.cmd "DiffviewClose"
+            else
+              vim.cmd "confirm q"
+            end
+          end,
+          desc = "Close window / Diffview",
+        },
 
         ["<leader>jd"] = { function() vim.lsp.buf.definition() end, desc = "Jump to definition" },
         ["<leader>jj"] = { "<cmd>vsplit<cr><cmd>lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition in vertical split" },
@@ -92,7 +102,7 @@ return {
         ["<leader><leader>"] = { function() Snacks.picker.recent() end, desc = "Recent files" },
         ["x"] = { '"_x' },
 
-        ["<Leader>c"] = {
+        ["<leader>c"] = {
           function()
             local bufs = vim.fn.getbufinfo { buflisted = true }
             require("astrocore.buffer").close(0)
@@ -106,7 +116,7 @@ return {
         ["<leader>rc"] = { "<cmd>Lazy reload all<cr>", desc = "Reload plugins (full restart preferred)" },
 
         -- octo: feed <leader>Op (Octo → Pull Requests submenu)
-        ["<C-p>"] = { "<Leader>Op", remap = true, desc = "Octo Pull Requests" },
+        ["<C-p>"] = { "<leader>Op", remap = true, desc = "Octo Pull Requests" },
 
         ["<leader>z"] = { "<cmd>tabclose<cr>", desc = "Close tab" },
 
