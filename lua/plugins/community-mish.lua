@@ -119,7 +119,9 @@ return {
       -- provider = "claude",
       providers = {
         copilot = {
-          model = "gpt-5.1-codex",
+          -- METR org currently blocks all Opus tier models via Copilot;
+          -- Sonnet 4.6 is the strongest Claude actually usable.
+          model = "claude-sonnet-4.6",
         },
         claude = {
           endpoint = "https://api.anthropic.com",
