@@ -101,7 +101,9 @@ return {
   { import = "astrocommunity.ai.avante-nvim" },
   {
     "yetone/avante.nvim",
-    version = false, -- set this if you want to always pull the latest change
+    -- Pinned to v0.0.29 because v0.1.0+ requires building from source and MDM blocks unsigned build scripts.
+    -- Revisit when upstream restores prebuilt release artifacts.
+    tag = "v0.0.29",
     keys = {
       { "<leader>ua", "<cmd>AvanteToggle<cr>", desc = "Toggle Avante" },
       { "<M-S-l>", "<cmd>AvanteToggle<cr>", mode = { "n", "i" }, desc = "Toggle Avante" },
