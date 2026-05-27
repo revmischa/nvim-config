@@ -1,8 +1,7 @@
 --- @type LazySpec
 return {
-  "m-demare/hlargs.nvim",
+  { "m-demare/hlargs.nvim", event = "BufReadPost" },
   "mg979/vim-visual-multi",
-  "bluz71/vim-nightfly-guicolors",
 
   {
     "sotte/presenting.nvim",

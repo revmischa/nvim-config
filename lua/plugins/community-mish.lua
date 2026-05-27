@@ -4,6 +4,8 @@ return {
   -- example of imporing a plugin, comment out to use it or add your own
   -- available plugins can be found at https://github.com/AstroNvim/astrocommunity
 
+  { import = "astrocommunity.pack.lua" },
+
   { import = "astrocommunity.editing-support.refactoring-nvim" },
   { "ThePrimeagen/refactoring.nvim", dependencies = { "lewis6991/async.nvim" } },
   { import = "astrocommunity.editing-support.nvim-regexplainer" },
@@ -14,6 +16,12 @@ return {
   -- { import = "astrocommunity.editing-support.telescope-undo-nvim" },
 
   { import = "astrocommunity.search.grug-far-nvim" },
+  {
+    "MagicDuck/grug-far.nvim",
+    keys = {
+      { "<leader>fR", "<cmd>GrugFar<cr>", desc = "Grug Find/Replace" },
+    },
+  },
 
   -- restore sessions
   { import = "astrocommunity.recipes.auto-session-restore" },
@@ -36,7 +44,29 @@ return {
   -- { import = "astrocommunity.git.fugit2-nvim", libgit2_path = "/opt/homebrew/lib/libgit2.dylib" },
   { import = "astrocommunity.git.diffview-nvim" },
   { import = "astrocommunity.git.neogit" },
-  { "akinsho/git-conflict.nvim", version = "*", config = true },
+  {
+    "NeogitOrg/neogit",
+    keys = {
+      { "<C-q>", "<cmd>Neogit<cr>", desc = "Git Status" },
+      { "<leader>gf", "<cmd>Neogit<cr>", desc = "Git Status" },
+      { "<leader>gG", "<cmd>Neogit kind=tab<cr>", desc = "Git Graph" },
+    },
+  },
+  {
+    "akinsho/git-conflict.nvim",
+    version = "*",
+    config = true,
+    keys = {
+      { "<leader>k", desc = "Git Conflict" },
+      { "<leader>ko", "<cmd>GitConflictChooseOurs<cr>", desc = "Choose ours" },
+      { "<leader>kt", "<cmd>GitConflictChooseTheirs<cr>", desc = "Choose theirs" },
+      { "<leader>kb", "<cmd>GitConflictChooseBoth<cr>", desc = "Choose both" },
+      { "<leader>kn", "<cmd>GitConflictChooseNone<cr>", desc = "Choose none" },
+      { "<leader>k]", "<cmd>GitConflictNextConflict<cr>", desc = "Next conflict" },
+      { "<leader>k[", "<cmd>GitConflictPrevConflict<cr>", desc = "Previous conflict" },
+      { "<leader>kq", "<cmd>GitConflictListQf<cr>", desc = "List conflicts in quickfix" },
+    },
+  },
   { import = "astrocommunity.git.octo-nvim" },
 
   { import = "astrocommunity.comment.mini-comment" },
@@ -72,6 +102,11 @@ return {
   {
     "yetone/avante.nvim",
     version = false, -- set this if you want to always pull the latest change
+    keys = {
+      { "<leader>ua", "<cmd>AvanteToggle<cr>", desc = "Toggle Avante" },
+      { "<M-S-l>", "<cmd>AvanteToggle<cr>", mode = { "n", "i" }, desc = "Toggle Avante" },
+      { "<M-l>", "<cmd>AvanteFocus<cr>", desc = "Focus Avante" },
+    },
     opts = {
       instructions_file = "CLAUDE.md",
       -- auto_suggestions_provider = "claude",
@@ -235,7 +270,7 @@ return {
     --  require "plugins.configs.trouble" (plugin, opts)
     -- end
     opts = {
-      auto_open = true,
+      auto_open = false,
       auto_close = true,
       auto_preview = false,
       auto_fold = false,

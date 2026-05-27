@@ -12,7 +12,8 @@ return {
       notifications = true,
     },
     diagnostics = {
-      virtual_text = true,
+      virtual_text = false,
+      virtual_lines = { current_line = true },
       underline = true,
     },
     options = {
@@ -20,7 +21,7 @@ return {
         relativenumber = false,
         number = true,
         spell = false,
-        signcolumn = "auto",
+        signcolumn = "yes",
         wrap = false,
       },
     },
@@ -65,24 +66,24 @@ return {
         ["<Leader>b"] = { desc = "Buffers" },
         ["<leader>bn"] = { "<cmd>tabnew<cr>", desc = "New tab" },
 
-        ["<C-s>"] = { "<cmd>update<CR>", desc = "Save File" },
-        ["<leader>fy"] = { ":let @+ = expand('%')<cr>", desc = "Copy relative path" },
-        ["<leader>fY"] = { ":let @+ = expand('%:p')<cr>", desc = "Copy absolute path" },
+        ["<C-s>"] = { "<cmd>update<cr>", desc = "Save File" },
+        ["<leader>fy"] = { "<cmd>let @+ = expand('%')<cr>", desc = "Copy relative path" },
+        ["<leader>fY"] = { "<cmd>let @+ = expand('%:p')<cr>", desc = "Copy absolute path" },
 
-        ["<leader>sv"] = { ":vsplit<cr>", desc = "Split vertically" },
-        ["<leader>sa"] = { ":split<cr>", desc = "Split horizontally" },
-        ["<leader>sq"] = { ":MaximizerToggle!<cr>", desc = "Maximize pane" },
-        ["<leader>q"] = { ":q<cr>", desc = "Close window" },
+        ["<leader>sv"] = { "<cmd>vsplit<cr>", desc = "Split vertically" },
+        ["<leader>sa"] = { "<cmd>split<cr>", desc = "Split horizontally" },
+        ["<leader>sQ"] = { "<cmd>MaximizerToggle!<cr>", desc = "Maximize pane" },
+        ["<leader>q"] = { "<cmd>q<cr>", desc = "Close window" },
 
-        ["<leader>jd"] = { ":lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition" },
-        ["<leader>jj"] = { ":vsplit | lua vim.lsp.buf.definition()<CR>", desc = "Jump to definition in vertical split" },
-        ["<leader>jh"] = { ":split | lua vim.lsp.buf.definition()<CR>", desc = "Jump to definition in horizontal split" },
+        ["<leader>jd"] = { function() vim.lsp.buf.definition() end, desc = "Jump to definition" },
+        ["<leader>jj"] = { "<cmd>vsplit<cr><cmd>lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition in vertical split" },
+        ["<leader>jh"] = { "<cmd>split<cr><cmd>lua vim.lsp.buf.definition()<cr>", desc = "Jump to definition in horizontal split" },
 
         -- vtsls
-        ["<leader>im"] = { ":VtsExec add_missing_imports<cr>", desc = "Add missing imports" },
-        ["<leader>io"] = { ":VtsExec organize_imports<cr>", desc = "Organize imports" },
-        ["<leader>ir"] = { ":VtsExec remove_unused<cr>", desc = "Remove unused" },
-        ["<leader>if"] = { ":VtsExec fix_all<cr>", desc = "Fix all" },
+        ["<leader>im"] = { "<cmd>VtsExec add_missing_imports<cr>", desc = "Add missing imports" },
+        ["<leader>io"] = { "<cmd>VtsExec organize_imports<cr>", desc = "Organize imports" },
+        ["<leader>ir"] = { "<cmd>VtsExec remove_unused<cr>", desc = "Remove unused" },
+        ["<leader>if"] = { "<cmd>VtsExec fix_all<cr>", desc = "Fix all" },
 
         -- v6: :LspRestart removed, use :lsp restart
         ["<leader>rs"] = { function() vim.cmd("lsp restart *") end, desc = "Restart LSP" },
@@ -102,40 +103,16 @@ return {
 
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
-        ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
+        ["<leader>rc"] = { "<cmd>Lazy reload all<cr>", desc = "Reload plugins (full restart preferred)" },
 
         -- octo: feed <leader>Op (Octo → Pull Requests submenu)
         ["<C-p>"] = { "<Leader>Op", remap = true, desc = "Octo Pull Requests" },
 
-        -- neogit
-        ["<C-q>"] = { "<cmd>Neogit<CR>", desc = "Git Status" },
-        ["<leader>gf"] = { "<cmd>Neogit<CR>", desc = "Git Status" },
-        ["<leader>gG"] = { "<cmd>Neogit kind=tab<CR>", desc = "Git Graph" },
-
-        ["<leader>fR"] = { "<cmd>GrugFar<CR>", desc = "Grug Find/Replace" },
-        ["<leader>fw"] = { function() Snacks.picker.grep_word() end, desc = "Find word under cursor" },
-
-        -- git-conflict
-        ["<leader>k"] = { desc = "Git Conflict" },
-        ["<leader>ko"] = { "<cmd>GitConflictChooseOurs<CR>", desc = "Choose ours" },
-        ["<leader>kt"] = { "<cmd>GitConflictChooseTheirs<CR>", desc = "Choose theirs" },
-        ["<leader>kb"] = { "<cmd>GitConflictChooseBoth<CR>", desc = "Choose both" },
-        ["<leader>kn"] = { "<cmd>GitConflictChooseNone<CR>", desc = "Choose none" },
-        ["<leader>k]"] = { "<cmd>GitConflictNextConflict<CR>", desc = "Next conflict" },
-        ["<leader>k["] = { "<cmd>GitConflictPrevConflict<CR>", desc = "Previous conflict" },
-        ["<leader>kq"] = { "<cmd>GitConflictListQf<CR>", desc = "List conflicts in quickfix" },
-
-        -- avante
-        ["<leader>ua"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
-        ["<M-S-l>"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
-        ["<M-l>"] = { "<cmd>AvanteFocus<CR>", desc = "Focus Avante" },
-
-        ["<leader>z"] = { "<cmd>tabclose<CR>", desc = "Close tab" },
-        ["<leader>bo"] = { "<cmd>BufOnly<CR>", desc = "Close other buffers" },
+        ["<leader>z"] = { "<cmd>tabclose<cr>", desc = "Close tab" },
 
         -- debugging
-        ["<leader>dn"] = { "<cmd>DapPytestNearest<CR>", desc = "Debug nearest pytest function" },
-        ["<leader>dd"] = { "<cmd>DapPytestFile<CR>", desc = "Debug current pytest file" },
+        ["<leader>dn"] = { "<cmd>DapPytestNearest<cr>", desc = "Debug nearest pytest function" },
+        ["<leader>dd"] = { "<cmd>DapPytestFile<cr>", desc = "Debug current pytest file" },
       },
       i = {
         -- v6: <C-s> removed from insert mode (now built-in signature help)
@@ -145,14 +122,13 @@ return {
           function() require("copilot.suggestion").next() end,
           desc = "Next Copilot Suggestion",
         },
-        ["<M-S-l>"] = { "<cmd>AvanteToggle<CR>", desc = "Toggle Avante" },
       },
       t = {
         ["<C-f>"] = { "<cmd>ToggleTerm direction=float<cr>" },
         ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
       },
       v = {
-        ["<leader>sl"] = { ":sort<cr>", desc = "Sort lines" },
+        ["<leader>sl"] = { "<cmd>sort<cr>", desc = "Sort lines" },
       },
     },
   },

@@ -25,6 +25,7 @@ vim.api.nvim_create_user_command(
       args = { vim.fn.expand "%" },
       console = "integratedTerminal",
       justMyCode = false,
+      env = _G.__nvim_load_dotenv and _G.__nvim_load_dotenv() or {},
     }
   end,
   {}
@@ -61,6 +62,7 @@ vim.api.nvim_create_user_command(
       args = { vim.fn.expand "%" .. "::" .. get_nearest_test() },
       console = "integratedTerminal",
       justMyCode = false,
+      env = _G.__nvim_load_dotenv and _G.__nvim_load_dotenv() or {},
     }
   end,
   {}

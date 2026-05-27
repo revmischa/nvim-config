@@ -6,6 +6,15 @@ return {
   opts = {
     filetypes = {
       ["*"] = true,
+      gitrebase = false,
+      hgcommit = false,
+      svn = false,
+      cvs = false,
+      help = false,
+      TelescopePrompt = false,
+      ["snacks_picker_input"] = false,
+      ["snacks_input"] = false,
+      ["dap-repl"] = false,
     },
     suggestion = {
       keymap = {

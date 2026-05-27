@@ -10,7 +10,6 @@ require("lazy").setup({
       pin_plugins = false, -- Don't pin plugins to AstroNvim snapshot versions
     },
   },
-  { import = "community" },
   { import = "plugins" },
 } --[[@as LazySpec]], {
   -- Configure any other `lazy.nvim` configuration options here
