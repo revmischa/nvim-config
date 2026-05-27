@@ -104,6 +104,9 @@ return {
         ["<M-/>"] = { "gcc", remap = true, desc = "Toggle comment line" },
         ["<leader>rc"] = { "<cmd>:so ~/.config/nvim/init.lua<cr>", desc = "Reload config" },
 
+        -- octo: feed <leader>Op (Octo → Pull Requests submenu)
+        ["<C-p>"] = { "<Leader>Op", remap = true, desc = "Octo Pull Requests" },
+
         -- neogit
         ["<C-q>"] = { "<cmd>Neogit<CR>", desc = "Git Status" },
         ["<leader>gf"] = { "<cmd>Neogit<CR>", desc = "Git Status" },
