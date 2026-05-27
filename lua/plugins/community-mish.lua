@@ -101,9 +101,11 @@ return {
   { import = "astrocommunity.ai.avante-nvim" },
   {
     "yetone/avante.nvim",
-    -- Pinned to v0.0.29 because v0.1.0+ requires building from source and MDM blocks unsigned build scripts.
-    -- Revisit when upstream restores prebuilt release artifacts.
-    tag = "v0.0.29",
+    version = false,
+    -- v0.1.0+ has no prebuilt release assets; we build from source.
+    -- Note: Makefile uses .so extension on Darwin but cargo emits .dylib,
+    -- so we rename in the build hook.
+    build = "sh -c 'for c in templates tokenizers repo-map html2md; do cargo build --release --features=luajit -p avante-$c || exit 1; done; for f in target/release/libavante_*.dylib target/release/libavante_*.so; do [ -e \"$f\" ] || continue; cp \"$f\" \"lua/$(basename \"$f\" | sed -E \"s/^lib//;s/\\.dylib$/.so/\")\"; done'",
     keys = {
       { "<leader>ua", "<cmd>AvanteToggle<cr>", desc = "Toggle Avante" },
       { "<M-S-l>", "<cmd>AvanteToggle<cr>", mode = { "n", "i" }, desc = "Toggle Avante" },
